@@ -1,0 +1,20 @@
+<div class="question-card" *ngIf="question">
+  <p class="enunciado">{{ question.enunciado }}</p>
+
+  <div class="opcoes">
+    <div
+      *ngFor="let opcao of question.opcoes; let i = index"
+      class="opcao-item"
+    >
+      <input
+        type="radio"
+        id="opcao-{{ i }}"
+        name="resposta"
+        [value]="opcao"
+        (change)="onSelect(opcao)"
+        [disabled]="answerSelected"
+      />
+      <label for="opcao-{{ i }}">{{ opcao }}</label>
+    </div>
+  </div>
+</div>

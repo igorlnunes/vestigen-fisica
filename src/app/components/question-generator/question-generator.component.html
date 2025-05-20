@@ -1,0 +1,22 @@
+<div class="generator-card">
+  <h2>Escolha seu Desafio</h2>
+  <div class="form-group">
+    <label for="topic">Tópico:</label>
+    <select id="topic" [(ngModel)]="selectedTopic">
+      <option *ngFor="let topic of topics" [value]="topic">{{ topic }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="difficulty">Dificuldade:</label>
+    <select id="difficulty" [(ngModel)]="selectedDifficulty">
+      <option *ngFor="let diff of difficulties" [value]="diff">
+        {{ diff }}
+      </option>
+    </select>
+  </div>
+
+  <button class="btn btn-primary" (click)="generate()">
+    Gerar Questão
+  </button>
+</div>
