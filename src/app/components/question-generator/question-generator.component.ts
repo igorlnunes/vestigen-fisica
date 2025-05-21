@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -5,7 +6,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-question-generator',
   templateUrl: './question-generator.component.html',
   styleUrls: ['./question-generator.component.scss'],
-  imports: [FormsModule]
+  imports: [FormsModule, CommonModule]
 })
 export class QuestionGeneratorComponent {
   @Output() generateQuestion = new EventEmitter<{

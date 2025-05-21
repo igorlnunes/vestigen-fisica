@@ -12,7 +12,7 @@
         name="resposta"
         [value]="opcao"
         (change)="onSelect(opcao)"
-        [disabled]="answerSelected"
+        [disabled]="!answerSelected"
       />
       <label for="opcao-{{ i }}">{{ opcao }}</label>
     </div>

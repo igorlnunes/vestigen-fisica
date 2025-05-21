@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class QuestionDisplayComponent {
   @Input() question: Questao | null = null;
-  @Output() answerSelected = new EventEmitter<string>();
+  @Output() answerSelected = new EventEmitter();
 
   hasAnswered: boolean = false;
 

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { marked } from 'marked';
 import {
   Component,
   Input,
@@ -25,13 +26,15 @@ export class ResolutionDisplayComponent implements OnChanges, AfterViewInit {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['resolution'] && this.resolution) {
       this.renderedResolution =
-        this.sanitizer.bypassSecurityTrustHtml(this.resolution);
-      // Re-renderiza MathJax se a resolução mudar
-      if (MathJax) {
+        this.convertMarkdownToHtml(this.resolution).then((safeHtml) => {
+      this.renderedResolution = safeHtml;
+      setTimeout(() => {
+      if (typeof MathJax !== 'undefined' && typeof MathJax.typesetPromise === 'function') {
         MathJax.typesetPromise();
       }
-    }
-  }
+    }, 0);
+    });
+    }}
 
   ngAfterViewInit(): void {
     // Garante que MathJax seja processado na inicialização, caso a resolução já esteja presente
@@ -39,4 +42,10 @@ export class ResolutionDisplayComponent implements OnChanges, AfterViewInit {
       MathJax.typesetPromise();
     }
   }
+
+
+  async convertMarkdownToHtml(md: string): Promise<SafeHtml> {
+  const html = await marked.parse(md); // converte markdown para HTML
+  return this.sanitizer.bypassSecurityTrustHtml(html); // segura contra XSS
+}
 }
