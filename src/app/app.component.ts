@@ -54,9 +54,12 @@ export class AppComponent {
 
   onAnswerSelected(answer: string): void {
     if (!this.currentQuestion) return;
-
-    this.selectedAnswer = answer;
-    this.isAnswerCorrect = answer === this.currentQuestion.respostaCorreta;
+    const normalizedAnswer = answer.trim().charAt(0).toUpperCase();
+    this.selectedAnswer = normalizedAnswer;
+    console.log(this.currentQuestion.respostaCorreta);
+    console.log("Resposta Selecionada: ", this.selectedAnswer);
+    this.isAnswerCorrect = normalizedAnswer === this.currentQuestion.respostaCorreta;
+    console.log("Retorno isAnswerCorrect: ", this.isAnswerCorrect);
     this.feedbackMessage = this.isAnswerCorrect
       ? 'Parabéns! Resposta correta!'
       : `Que pena! A resposta correta era: ${this.currentQuestion.respostaCorreta}`;
