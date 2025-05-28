@@ -10,7 +10,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 // Defina a chave da API do Google Gemini (substitua pela sua chave real)
 // ATENÇÃO: NUNCA EXPOR SUA CHAVE DE API DIRETAMENTE NO FRONTEND EM PRODUÇÃO.
 // Use um backend para fazer as chamadas para a API Gemini.
-const apiKey = environment.googleApiKey;
+const apiKey = environment.API_KEY;
 
 if (!apiKey) {
   console.error(

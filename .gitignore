@@ -5,9 +5,11 @@
 /tmp
 /out-tsc
 /bazel-out
-
+firebase*
 # Environments
 src/environments/environment.ts
+src/environments/environment.prod.ts
+.env
 # Node
 /node_modules
 npm-debug.log

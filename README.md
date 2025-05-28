@@ -1,59 +1,48 @@
-# VestibularApp
+# Vestibular Fácil: Preparação para o Vestibular de Física
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+---
 
-## Development server
+Este projeto é uma aplicação **Angular 19** desenvolvida em **TypeScript**. Seu objetivo é auxiliar estudantes do ensino médio na preparação para o vestibular, com foco em **física**. A aplicação utiliza a **Inteligência Artificial Gemini do Google** para gerar questões de física, com alternativas, a partir de diversos tópicos do ensino médio.
 
-To start a local development server, run:
+Após selecionar uma alternativa, é possível **gerar a resolução** da questão. A aplicação renderiza fórmulas e equações utilizando **Markdown e LaTeX**, otimizando a apresentação do conteúdo.
+
+## Como Executar a Aplicação
+
+---
+
+Para rodar o DescomplicaVest em sua máquina, siga os passos abaixo:
+
+### 1. Obtenha a Chave da API do Google Gemini
+
+Uma chave de API do Google Gemini é necessária para o funcionamento da aplicação. Instruções para obtenção da chave estão disponíveis em [Como Obter uma Chave de API](https://aistudio.google.com/app/apikey).
+
+### 2. Configure a Chave da API
+
+Abra o arquivo `src/environments/environment.ts` e insira sua chave da API no campo `googleApiKey`:
+
+```typescript
+export const environment = {
+  production: false,
+  googleApiKey: 'SUA_CHAVE_DA_API_AQUI', // Substitua pela sua chave
+};
+```
+
+### 3. Instale as Dependências
+
+No terminal, navegue até o diretório do projeto e execute o comando para instalar as dependências:
+
+```bash
+npm install
+```
+
+### 4. Inicie a Aplicação
+
+Com as dependências instaladas, inicie o servidor de desenvolvimento:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A aplicação estará acessível em seu navegador via `http://localhost:4200/`.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
