@@ -6,7 +6,7 @@ import { ResolutionDisplayComponent } from './components/resolution-display/reso
 import { QuestionDisplayComponent } from './components/question-display/question-display.component';
 import { QuestionGeneratorComponent } from './components/question-generator/question-generator.component';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../src/environments/environment';
+import { initializeApp } from "firebase/app";
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,17 @@ export class AppComponent {
   displayResolution: boolean = false;
   isLoading: boolean = false;
   errorMessage: string = '';
-  apiKey = environment.API_KEY;
+
+  firebaseConfig = {
+  apiKey: "Insert infos here",
+  authDomain: "Insert infos here",
+  projectId: "Insert infos here",
+  storageBucket: "Insert infos here",
+  messagingSenderId: "Insert infos here",
+  appId: "Insert infos here"
+  };
+
+  app = initializeApp(this.firebaseConfig);
 
   constructor(private questionService: QuestionService) {}
 

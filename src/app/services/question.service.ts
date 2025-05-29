@@ -3,13 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Questao } from '../models/question.model';
 import { environment } from '../../environments/environment';
 
-// Importa diretamente para fins de demonstração.
-// Em um projeto real, estas funções estariam em um backend.
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-// Defina a chave da API do Google Gemini (substitua pela sua chave real)
-// ATENÇÃO: NUNCA EXPOR SUA CHAVE DE API DIRETAMENTE NO FRONTEND EM PRODUÇÃO.
-// Use um backend para fazer as chamadas para a API Gemini.
 const apiKey = environment.API_KEY;
 
 if (!apiKey) {
@@ -25,7 +20,7 @@ const model = genAI ? genAI.getGenerativeModel({ model: 'gemini-2.0-flash' }) : 
   providedIn: 'root',
 })
 export class QuestionService {
-  constructor(private http: HttpClient) {} // Usaríamos HttpClient em um cenário real com backend
+  constructor(private http: HttpClient) {} 
 
   async generateQuestion(
     topico: string,

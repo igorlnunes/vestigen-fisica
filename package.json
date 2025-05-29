@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -18,6 +18,8 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@google/generative-ai": "^0.24.1",
+    "dotenv": "^16.5.0",
+    "firebase": "^11.8.1",
     "marked": "^15.0.12",
     "mathjax": "^3.2.2",
     "rxjs": "~7.8.0",

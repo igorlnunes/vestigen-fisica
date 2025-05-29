@@ -37,7 +37,6 @@ export class ResolutionDisplayComponent implements OnChanges, AfterViewInit {
     }}
 
   ngAfterViewInit(): void {
-    // Garante que MathJax seja processado na inicialização, caso a resolução já esteja presente
     if (this.resolution && MathJax) {
       MathJax.typesetPromise();
     }
@@ -45,7 +44,7 @@ export class ResolutionDisplayComponent implements OnChanges, AfterViewInit {
 
 
   async convertMarkdownToHtml(md: string): Promise<SafeHtml> {
-  const html = await marked.parse(md); // converte markdown para HTML
-  return this.sanitizer.bypassSecurityTrustHtml(html); // segura contra XSS
+  const html = await marked.parse(md);
+  return this.sanitizer.bypassSecurityTrustHtml(html);
 }
 }

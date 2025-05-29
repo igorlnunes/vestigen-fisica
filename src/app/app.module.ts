@@ -19,7 +19,7 @@ import { ResolutionDisplayComponent } from './components/resolution-display/reso
   ],
   imports: [
     BrowserModule,
-    FormsModule, // Adicione aqui
+    FormsModule, 
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
